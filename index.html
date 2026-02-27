@@ -3,71 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Management Interface</title>
+    <title>Glassmorphism Design</title>
     <style>
         body {
-            background: rgba(240, 240, 240, 0.9);
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
             margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: Arial, sans-serif;
         }
-
         .container {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
-
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
         h1 {
             text-align: center;
             color: #333;
         }
-
-        input[type="file"] {
-            margin: 10px 0;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
+    <h1>Welcome to My Glassmorphism Design</h1>
     <div class="container">
-        <h1>Video Management Interface</h1>
-        <input type="file" accept="video/*" id="videoUpload" />
-        <button onclick="uploadVideo()">Upload Video</button>
+        <div class="card">Video Card 1</div>
+        <div class="card">Video Card 2</div>
+        <div class="card">Video Card 3</div>
+        <div class="card">Video Card 4</div>
     </div>
-    <script>
-        function uploadVideo() {
-            const fileInput = document.getElementById('videoUpload');
-            if (fileInput.files.length === 0) {
-                alert('Please select a video to upload.');
-                return;
-            }
-            // Implement video upload functionality here.
-            alert('Video uploaded: ' + fileInput.files[0].name);
-        }
-    </script>
 </body>
 </html>
-<link rel="stylesheet" href="styles.css">
