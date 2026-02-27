@@ -1,0 +1,49 @@
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin: 20px;
+}
+
+.title {
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    animation: fadeIn 2s;
+}
+
+.video {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+}
