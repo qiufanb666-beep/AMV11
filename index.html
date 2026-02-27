@@ -3,43 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glassmorphism Design</title>
+    <title>Video Management Interface</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
         }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
+        video {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
         }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Glassmorphism Design</h1>
-    <div class="container">
-        <div class="card">Video Card 1</div>
-        <div class="card">Video Card 2</div>
-        <div class="card">Video Card 3</div>
-        <div class="card">Video Card 4</div>
+    <video id="videoElement" controls></video>
+    <div class="controls">
+        <input type="file" id="fileInput" accept="video/*">
+        <button id="playButton">Play</button>
+        <button id="pauseButton">Pause</button>
     </div>
+
+    <script>
+        const videoElement = document.getElementById('videoElement');
+        const fileInput = document.getElementById('fileInput');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                videoElement.src = url;
+                videoElement.style.display = 'block';
+            }
+        });
+
+        playButton.addEventListener('click', () => {
+            videoElement.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            videoElement.pause();
+        });
+    </script>
 </body>
 </html>
